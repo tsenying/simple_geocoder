@@ -1,0 +1,6 @@
+google_v3:
+  output: json
+  sensor: false
+  region: us
+  url_root: http://maps.google.com/maps/api/geocode
+  

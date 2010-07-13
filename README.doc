@@ -1,0 +1,7 @@
+= simple_geocoder
+
+Simple interface to the Google Geocoding Service API V3
+API configuration in config/api.yml
+
+== Copyright
+Copyright (c) 2010 Ying Tsen Hong. See LICENSE for details
