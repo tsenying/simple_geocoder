@@ -1,6 +1,6 @@
 google_v3:
-  output: json
+  # output: json # only JSON output format supported
   sensor: false
   region: us
-  url_root: http://maps.google.com/maps/api/geocode
+  url_root: "http://maps.google.com/maps/api/geocode"
   

@@ -9,12 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors  = ['Ying Tsen Hong']
   spec.homepage = 'http://github.com/tsenying/simple_geocoder'
 
-  # Added to silence a gems warning.
+  # silence a gem build warning.
   spec.rubyforge_project = 'N/A'
   
   spec.extra_rdoc_files = ['LICENSE', 'README.doc']
 
-  # Everything except the git files
+  # everything except the git files
   spec.files = Dir['**/*'].reject{ |f| f.include?('.git') }
   # spec.files += ['.gitignore']
   spec.test_files = Dir['test/*.rb']
