@@ -1,6 +1,6 @@
 = simple_geocoder
 
-Simple interface to the Google Geocoding Service API V3
+Simple interface to the Google Geocoding Service API V3 http://code.google.com/apis/maps/documentation/geocoding/
 
 * API configuration in config/api.yml
 * returns results in parsed JSON format
