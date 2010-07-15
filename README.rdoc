@@ -1,7 +1,17 @@
 = simple_geocoder
 
 Simple interface to the Google Geocoding Service API V3
-API configuration in config/api.yml
+
+* API configuration in config/api.yml
+* returns results in parsed JSON format
+
+== Examples
+  require 'simple_geocoder'
+  result = SimpleGeocoder::Geocoder.new.geocode('2000 28th St, Boulder, CO')
+  puts result['results'][0]['geometry']['location'] # => {"lat"=> 40.0185510,"lng"=> -105.2582644}
+
+== Requirements
+* JSON http://flori.github.com/json/doc/index.html
 
 == Copyright
 Copyright (c) 2010 Ying Tsen Hong. See LICENSE for details
