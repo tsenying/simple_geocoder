@@ -31,6 +31,22 @@ module SimpleGeocoder
       end
     end
     
+    # if geocoding fails, then look for lat,lng string in address
+    def find_location(address)
+      result = geocode(address)
+      if result['status'] == 'OK'
+        return result['results'][0]['geometry']['location']
+      else
+        latlon_regexp = /(-?([1-8]?[0-9]\.{1}\d{1,6}|90\.{1}0{1,6})),(-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6})|[1]?[1-8][0]\.{1}0{1,6}))/
+        if address =~ latlon_regexp
+          location = $&.split(',').map {|e| e.to_f}
+          return { "lat" => location[0], "lng" => location[1] }
+        else
+          return nil
+        end
+      end
+    end
+    
     private
     def call_geocoder_service(address)
       format = 'json'
