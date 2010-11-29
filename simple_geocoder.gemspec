@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   # silence a gem build warning.
   spec.rubyforge_project = 'N/A'
   
-  spec.extra_rdoc_files = ['LICENSE', 'README.rdoc']
+  spec.extra_rdoc_files = ['MIT-LICENSE', 'README.rdoc']
 
   # everything except the git files
   spec.files = Dir['**/*'].reject{ |f| f.include?('.git') }
