@@ -1,9 +1,9 @@
 = simple_geocoder
 
-Simple interface to the Google Geocoding Service API V3 http://code.google.com/apis/maps/documentation/geocoding/
+Simple Ruby interface to the Google Geocoding Service API V3 http://code.google.com/apis/maps/documentation/geocoding/
 
-* API configuration in config/api.yml
 * returns results in parsed JSON format
+* API configuration in config/api.yml
 
 == Examples
   require 'rubygems'
@@ -12,17 +12,17 @@ Simple interface to the Google Geocoding Service API V3 http://code.google.com/a
   puts result['results'][0]['geometry']['location'].inspect # => {"lat"=> 40.0185510,"lng"=> -105.2582644}
   
 Accepts optional parameters as a hash, keyed by parameter name symbols.
-Optional parameters include: bounds, region, language, sensor
-Default region is 'us'.
-Default sensor value is 'false'
+Optional parameters include: bounds, region, language, sensor.
+Default *region* is 'us'.
+Default *sensor* value is 'false'
   
 Example for region parameter:
   result =  SimpleGeocoder::Geocoder.new.geocode("Toledo",{:region=>'es'})
-returns location for Toledo, Spain
+returns location for Toledo, Spain.
   
-Example for bounds (viewport biasing)
+Example for bounds (viewport biasing):
   result =  SimpleGeocoder::Geocoder.new.geocode("Winnetka", { :bounds => "34.172684,-118.604794|34.236144,-118.500938" } )
-Returns location for Winnetka in California instead of Illinois
+Returns location for Winnetka in California instead of Illinois.
 
 == Requirements
 * JSON http://flori.github.com/json/doc/index.html
