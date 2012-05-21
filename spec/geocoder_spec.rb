@@ -9,6 +9,13 @@ describe SimpleGeocoder::Geocoder do
     result['results'][0]['geometry']['location']['lng'].should be_within(0.0001).of(-105.2582644)
   end
   
+  it "works outside us region" do
+    result =  SimpleGeocoder::Geocoder.new.geocode("Moto'otua, Samoa")
+    result['status'].should == "OK" # at least one geocode returned
+    result['results'][0]['geometry']['location']['lat'].should be_within(0.0001).of(-13.8460556)
+    result['results'][0]['geometry']['location']['lng'].should be_within(0.0001).of(-171.7629788)
+  end
+  
   it "can find lat/lng in string" do
     address = "ÜT: 34.044817,-118.311893"
     result = SimpleGeocoder::Geocoder.new.find_location(address)
