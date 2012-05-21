@@ -2,6 +2,7 @@ require 'net/http'
 require 'cgi'
 require 'timeout'
 require 'json'
+require 'yaml'
 
 # Geocoding is a time and resource intensive task. 
 # Whenever possible, pre-geocode known addresses 

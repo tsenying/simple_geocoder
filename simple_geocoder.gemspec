@@ -2,10 +2,10 @@ require File.expand_path("../lib/simple_geocoder/version", __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name     = 'simple_geocoder'
-  spec.summary  = 'Simple interface to Google Geocoding API V3'
+  spec.summary  = 'Simple interface to Google Geocoding API V3 for ruby.'
   spec.version     = ::SimpleGeocoder::VERSION
   spec.platform    = Gem::Platform::RUBY
-  spec.email    = 'tsenying gmail'
+  spec.email    = 'tsenying at gmail dot com'
   spec.authors  = ['Ying Tsen Hong']
   spec.homepage = 'http://github.com/tsenying/simple_geocoder'
 
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   # spec.require_paths = ["lib"] # default
   spec.has_rdoc = "true"
 
-  spec.add_dependency('json', '~>1.1.9')
+  spec.add_dependency('json', '~>1.7.3')
 end

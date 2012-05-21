@@ -5,8 +5,8 @@ describe SimpleGeocoder::Geocoder do
     address = '2000 28th St, Boulder, CO'
     result = SimpleGeocoder::Geocoder.new.geocode(address)
     result['status'].should == "OK" # at least one geocode returned
-    result['results'][0]['geometry']['location']['lat'].should be_close(40.0185510, 0.0001)
-    result['results'][0]['geometry']['location']['lng'].should be_close(-105.2582644, 0.0001)
+    result['results'][0]['geometry']['location']['lat'].should be_within(0.0001).of(40.018551)
+    result['results'][0]['geometry']['location']['lng'].should be_within(0.0001).of(-105.2582644)
   end
   
   it "can find lat/lng in string" do
