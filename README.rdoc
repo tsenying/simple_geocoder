@@ -28,4 +28,4 @@ Returns location for Winnetka in California instead of Illinois.
 * JSON http://flori.github.com/json/doc/index.html
 
 == Copyright
-Copyright (c) 2010 Ying Tsen Hong. See LICENSE for details
+Copyright (c) 2010, 2011, 2012 Ying Tsen Hong. See LICENSE for details
