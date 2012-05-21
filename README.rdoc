@@ -6,9 +6,10 @@ Simple interface to the Google Geocoding Service API V3 http://code.google.com/a
 * returns results in parsed JSON format
 
 == Examples
+  require 'rubygems'
   require 'simple_geocoder'
   result = SimpleGeocoder::Geocoder.new.geocode('2000 28th St, Boulder, CO')
-  puts result['results'][0]['geometry']['location'] # => {"lat"=> 40.0185510,"lng"=> -105.2582644}
+  puts result['results'][0]['geometry']['location'].inspect # => {"lat"=> 40.0185510,"lng"=> -105.2582644}
 
 == Requirements
 * JSON http://flori.github.com/json/doc/index.html
