@@ -16,15 +16,15 @@ module SimpleGeocoder
     end
 
     # swallow exceptions and return nil on error
-    def geocode(address)
-      geocode!(address)
+    def geocode(address, options = {})
+      geocode!(address, options)
     rescue ResponseError
       nil
     end
     
     # raise ResponseError exception on error
-    def geocode!(address)
-      response = call_geocoder_service(address)
+    def geocode!(address, options = {})
+      response = call_geocoder_service(address, options)
       if response.is_a?(Net::HTTPOK)
         return JSON.parse response.body
       else
@@ -49,10 +49,15 @@ module SimpleGeocoder
     end
     
     private
-    def call_geocoder_service(address)
+    def call_geocoder_service(address, options)
       format = 'json'
       address = CGI.escape address
-      parameters = "address=#{address}&region=#{@@api_config['google_v3']['region']}&sensor=#{@@api_config['google_v3']['sensor']}"
+      parameters = "address=#{address}"
+      parameters += options[:region] ? "&region=#{options[:region]}" : "&region=#{@@api_config['google_v3']['region']}"
+      parameters += options[:sensor] ? "&sensor=#{options[:sensor]}" : "&sensor=#{@@api_config['google_v3']['sensor']}"
+      parameters += "&bounds=#{CGI.escape options[:bounds]}" if options[:bounds]
+      parameters += "&language=#{options[:language]}" if options[:language]
+      # parameters = "address=#{address}&region=#{@@api_config['google_v3']['region']}&sensor=#{@@api_config['google_v3']['sensor']}"
       url = "#{@@api_config['google_v3']['url_root']}/#{format}?#{parameters}"
 
       Net::HTTP.get_response(URI.parse(url))
